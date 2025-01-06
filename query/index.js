@@ -34,6 +34,7 @@ app.post('/events', (req, res) => {
 
 // ここまでやった!
 // ここからは、query サービスの起動処理
+// このサービスは、4002 ポートで起動する
 app.listen(4002, () => {
     console.log('Listening on 4002');
 });

@@ -1,0 +1,17 @@
+apiVersion: apps/v1  # 使用するKubernetes APIのバージョン。この場合、apps/v1はDeploymentリソース用。
+kind: Deployment    # リソースの種類。Deploymentはアプリケーションのデプロイメントを管理するオブジェクト。
+metadata:           # リソースのメタデータを指定するセクション。
+  name: posts-depl  # Deploymentの名前。この名前でリソースを識別する。
+spec:               # Deploymentの仕様を定義するセクション。
+  replicas: 1       # 作成するPodのレプリカ数。この場合、1つのPodを実行。
+  selector:         # このDeploymentが管理するPodを指定するためのセレクター。
+    matchLabels:    # ラベルでPodを一致させる条件を定義。
+      app: posts    # `app: posts`ラベルを持つPodを対象とする。
+  template:         # 作成するPodのテンプレートを定義するセクション。
+    metadata:       # Podのメタデータを指定する。
+      labels:       # Podに付与するラベルを定義。
+        app: posts  # `app: posts`ラベルを付与。このラベルがセレクターと一致する。
+    spec:
+      containers:
+        - name: posts
+          image: goat229/posts:latest

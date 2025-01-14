@@ -11,7 +11,7 @@ spec:               # Deploymentの仕様を定義するセクション。
     metadata:       # Podのメタデータを指定する。
       labels:       # Podに付与するラベルを定義。
         app: posts  # `app: posts`ラベルを付与。このラベルがセレクターと一致する。
-    spec:
+    spec: # Podの仕様を定義するセクション。
       containers:
         - name: posts
           image: goat229/posts:latest

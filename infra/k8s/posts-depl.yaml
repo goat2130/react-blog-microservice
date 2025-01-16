@@ -15,3 +15,16 @@ spec:               # Deploymentの仕様を定義するセクション。
       containers: # Pod内で実行するコンテナを定義する。
         - name: posts
           image: goat229/posts:latest
+--- # IPサービスの設定
+apiVersion: v1
+kind: Service
+metadata:
+  name: event-bus-srv
+spec:
+  selector:
+    app: event-bus
+  ports:
+    - name: event-bus
+      protocol: TCP
+      port: 4005
+      targetPort: 4005

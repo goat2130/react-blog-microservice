@@ -11,7 +11,7 @@ const CommentCreate = ({ postId }) => {
       content,
     });
 
-    setContent("");
+    setContent("");//
   };
 
   return (
